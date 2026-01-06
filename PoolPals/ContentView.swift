@@ -1,24 +1,19 @@
-//
-//  ContentView.swift
-//  PoolPals
-//
-//  Created by Priya Taliyan on 2025-12-30.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+
+    @StateObject private var authViewModel = AuthViewModel()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Group {
+            if authViewModel.isAuthenticated {
+                RideListView(
+                    onSignOut: authViewModel.signOut
+                )
+            } else {
+                AuthView(viewModel: authViewModel)
+            }
         }
-        .padding()
     }
 }
 
-#Preview {
-    ContentView()
-}

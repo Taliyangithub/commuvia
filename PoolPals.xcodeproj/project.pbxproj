@@ -6,8 +6,16 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		F2243C742F047B7A0014071A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F2243C732F047B7A0014071A /* FirebaseAuth */; };
+		F2243C762F047B7A0014071A /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = F2243C752F047B7A0014071A /* FirebaseCore */; };
+		F2243C782F047B7A0014071A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F2243C772F047B7A0014071A /* FirebaseFirestore */; };
+		F2243C7A2F047CE10014071A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2243C792F047CE10014071A /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		F2243C642F047A1C0014071A /* PoolPals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoolPals.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2243C792F047CE10014071A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +31,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2243C762F047B7A0014071A /* FirebaseCore in Frameworks */,
+				F2243C742F047B7A0014071A /* FirebaseAuth in Frameworks */,
+				F2243C782F047B7A0014071A /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,6 +43,7 @@
 		F2243C5B2F047A1C0014071A = {
 			isa = PBXGroup;
 			children = (
+				F2243C792F047CE10014071A /* GoogleService-Info.plist */,
 				F2243C662F047A1C0014071A /* PoolPals */,
 				F2243C652F047A1C0014071A /* Products */,
 			);
@@ -65,6 +77,9 @@
 			);
 			name = PoolPals;
 			packageProductDependencies = (
+				F2243C732F047B7A0014071A /* FirebaseAuth */,
+				F2243C752F047B7A0014071A /* FirebaseCore */,
+				F2243C772F047B7A0014071A /* FirebaseFirestore */,
 			);
 			productName = PoolPals;
 			productReference = F2243C642F047A1C0014071A /* PoolPals.app */;
@@ -94,6 +109,9 @@
 			);
 			mainGroup = F2243C5B2F047A1C0014071A;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F2243C722F047B7A0014071A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F2243C652F047A1C0014071A /* Products */;
 			projectDirPath = "";
@@ -109,6 +127,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2243C7A2F047CE10014071A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +351,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F2243C722F047B7A0014071A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F2243C732F047B7A0014071A /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F2243C722F047B7A0014071A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		F2243C752F047B7A0014071A /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F2243C722F047B7A0014071A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		F2243C772F047B7A0014071A /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F2243C722F047B7A0014071A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F2243C5C2F047A1C0014071A /* Project object */;
 }
