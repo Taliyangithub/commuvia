@@ -40,12 +40,12 @@ struct SettingsView: View {
                 Section("Legal") {
                     Link(
                         "Privacy Policy",
-                        destination: URL(string: "https://yourdomain.com/privacy")!
+                        destination: URL(string: "https://taliyangithub.github.io/poolPals/privacy-policy.html")!
                     )
 
                     Link(
                         "Terms of Service",
-                        destination: URL(string: "https://yourdomain.com/terms")!
+                        destination: URL(string: "https://taliyangithub.github.io/poolPals/terms.html")!
                     )
                 }
 
