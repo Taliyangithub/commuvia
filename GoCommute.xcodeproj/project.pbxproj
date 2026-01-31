@@ -11,20 +11,72 @@
 		F2243C762F047B7A0014071A /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = F2243C752F047B7A0014071A /* FirebaseCore */; };
 		F2243C782F047B7A0014071A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F2243C772F047B7A0014071A /* FirebaseFirestore */; };
 		F2AC0B1A2F2E00760059F676 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2AC0B192F2E00760059F676 /* GoogleService-Info.plist */; };
+		F2AC0BC22F2E06060059F676 /* SafetyNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BB32F2E06060059F676 /* SafetyNoticeView.swift */; };
+		F2AC0BC32F2E06060059F676 /* GoCommuteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BBA2F2E06060059F676 /* GoCommuteApp.swift */; };
+		F2AC0BC52F2E06060059F676 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0B9A2F2E06060059F676 /* AppUser.swift */; };
+		F2AC0BC62F2E06060059F676 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BB92F2E06060059F676 /* ContentView.swift */; };
+		F2AC0BC72F2E06060059F676 /* RideSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BA82F2E06060059F676 /* RideSearchViewModel.swift */; };
+		F2AC0BC82F2E06060059F676 /* RideChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BA62F2E06060059F676 /* RideChatViewModel.swift */; };
+		F2AC0BCA2F2E06060059F676 /* RideService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BA22F2E06060059F676 /* RideService.swift */; };
+		F2AC0BCB2F2E06060059F676 /* RideDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BAF2F2E06060059F676 /* RideDetailView.swift */; };
+		F2AC0BCC2F2E06060059F676 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BB62F2E06060059F676 /* SettingsView.swift */; };
+		F2AC0BCD2F2E06060059F676 /* PendingRideRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0B9B2F2E06060059F676 /* PendingRideRequest.swift */; };
+		F2AC0BCE2F2E06060059F676 /* RideChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BAE2F2E06060059F676 /* RideChatView.swift */; };
+		F2AC0BCF2F2E06060059F676 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BA42F2E06060059F676 /* AuthViewModel.swift */; };
+		F2AC0BD02F2E06060059F676 /* PendingRequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BA52F2E06060059F676 /* PendingRequestsViewModel.swift */; };
+		F2AC0BD12F2E06060059F676 /* RideDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BA72F2E06060059F676 /* RideDetailViewModel.swift */; };
+		F2AC0BD22F2E06060059F676 /* RideMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0B9D2F2E06060059F676 /* RideMessage.swift */; };
+		F2AC0BD32F2E06060059F676 /* RideRequestStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0B9F2F2E06060059F676 /* RideRequestStatus.swift */; };
+		F2AC0BD42F2E06060059F676 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BA12F2E06060059F676 /* AuthService.swift */; };
+		F2AC0BD52F2E06060059F676 /* RideListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BB02F2E06060059F676 /* RideListView.swift */; };
+		F2AC0BD62F2E06060059F676 /* RideViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BA92F2E06060059F676 /* RideViewModel.swift */; };
+		F2AC0BD72F2E06060059F676 /* PendingRequestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BAD2F2E06060059F676 /* PendingRequestsView.swift */; };
+		F2AC0BD82F2E06060059F676 /* LocationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BAC2F2E06060059F676 /* LocationPickerView.swift */; };
+		F2AC0BD92F2E06060059F676 /* RideRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0B9E2F2E06060059F676 /* RideRequest.swift */; };
+		F2AC0BDA2F2E06060059F676 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0B9C2F2E06060059F676 /* Ride.swift */; };
+		F2AC0BDB2F2E06060059F676 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BB52F2E06060059F676 /* AuthView.swift */; };
+		F2AC0BDC2F2E06060059F676 /* CreateRideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BAB2F2E06060059F676 /* CreateRideView.swift */; };
+		F2AC0BDD2F2E06060059F676 /* RideRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BB12F2E06060059F676 /* RideRowView.swift */; };
+		F2AC0BDE2F2E06060059F676 /* RideSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BB22F2E06060059F676 /* RideSearchView.swift */; };
+		F2AC0BDF2F2E06060059F676 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2AC0BB82F2E06060059F676 /* Assets.xcassets */; };
+		F2AC0BE02F2E06060059F676 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F2AC0BBE2F2E06060059F676 /* README.md */; };
+		F2AC0BE62F2E0CA50059F676 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2AC0BE52F2E0CA50059F676 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F2243C642F047A1C0014071A /* GoCommute.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoCommute.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2AC0B192F2E00760059F676 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F2AC0B9A2F2E06060059F676 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
+		F2AC0B9B2F2E06060059F676 /* PendingRideRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingRideRequest.swift; sourceTree = "<group>"; };
+		F2AC0B9C2F2E06060059F676 /* Ride.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
+		F2AC0B9D2F2E06060059F676 /* RideMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideMessage.swift; sourceTree = "<group>"; };
+		F2AC0B9E2F2E06060059F676 /* RideRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequest.swift; sourceTree = "<group>"; };
+		F2AC0B9F2F2E06060059F676 /* RideRequestStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequestStatus.swift; sourceTree = "<group>"; };
+		F2AC0BA12F2E06060059F676 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		F2AC0BA22F2E06060059F676 /* RideService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideService.swift; sourceTree = "<group>"; };
+		F2AC0BA42F2E06060059F676 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		F2AC0BA52F2E06060059F676 /* PendingRequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingRequestsViewModel.swift; sourceTree = "<group>"; };
+		F2AC0BA62F2E06060059F676 /* RideChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideChatViewModel.swift; sourceTree = "<group>"; };
+		F2AC0BA72F2E06060059F676 /* RideDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideDetailViewModel.swift; sourceTree = "<group>"; };
+		F2AC0BA82F2E06060059F676 /* RideSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideSearchViewModel.swift; sourceTree = "<group>"; };
+		F2AC0BA92F2E06060059F676 /* RideViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideViewModel.swift; sourceTree = "<group>"; };
+		F2AC0BAB2F2E06060059F676 /* CreateRideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRideView.swift; sourceTree = "<group>"; };
+		F2AC0BAC2F2E06060059F676 /* LocationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerView.swift; sourceTree = "<group>"; };
+		F2AC0BAD2F2E06060059F676 /* PendingRequestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingRequestsView.swift; sourceTree = "<group>"; };
+		F2AC0BAE2F2E06060059F676 /* RideChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideChatView.swift; sourceTree = "<group>"; };
+		F2AC0BAF2F2E06060059F676 /* RideDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideDetailView.swift; sourceTree = "<group>"; };
+		F2AC0BB02F2E06060059F676 /* RideListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideListView.swift; sourceTree = "<group>"; };
+		F2AC0BB12F2E06060059F676 /* RideRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRowView.swift; sourceTree = "<group>"; };
+		F2AC0BB22F2E06060059F676 /* RideSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideSearchView.swift; sourceTree = "<group>"; };
+		F2AC0BB32F2E06060059F676 /* SafetyNoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafetyNoticeView.swift; sourceTree = "<group>"; };
+		F2AC0BB52F2E06060059F676 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		F2AC0BB62F2E06060059F676 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F2AC0BB82F2E06060059F676 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F2AC0BB92F2E06060059F676 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F2AC0BBA2F2E06060059F676 /* GoCommuteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoCommuteApp.swift; sourceTree = "<group>"; };
+		F2AC0BBE2F2E06060059F676 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F2AC0BE52F2E0CA50059F676 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		F2243C662F047A1C0014071A /* PoolPals */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = PoolPals;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F2243C612F047A1C0014071A /* Frameworks */ = {
@@ -43,8 +95,9 @@
 		F2243C5B2F047A1C0014071A = {
 			isa = PBXGroup;
 			children = (
+				F2AC0BBC2F2E06060059F676 /* go-commute */,
+				F2AC0BBE2F2E06060059F676 /* README.md */,
 				F2AC0B192F2E00760059F676 /* GoogleService-Info.plist */,
-				F2243C662F047A1C0014071A /* PoolPals */,
 				F2243C652F047A1C0014071A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,6 +108,82 @@
 				F2243C642F047A1C0014071A /* GoCommute.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F2AC0BA02F2E06060059F676 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F2AC0B9A2F2E06060059F676 /* AppUser.swift */,
+				F2AC0B9B2F2E06060059F676 /* PendingRideRequest.swift */,
+				F2AC0B9C2F2E06060059F676 /* Ride.swift */,
+				F2AC0B9D2F2E06060059F676 /* RideMessage.swift */,
+				F2AC0B9E2F2E06060059F676 /* RideRequest.swift */,
+				F2AC0B9F2F2E06060059F676 /* RideRequestStatus.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F2AC0BA32F2E06060059F676 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F2AC0BA12F2E06060059F676 /* AuthService.swift */,
+				F2AC0BA22F2E06060059F676 /* RideService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F2AC0BAA2F2E06060059F676 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F2AC0BA42F2E06060059F676 /* AuthViewModel.swift */,
+				F2AC0BA52F2E06060059F676 /* PendingRequestsViewModel.swift */,
+				F2AC0BA62F2E06060059F676 /* RideChatViewModel.swift */,
+				F2AC0BA72F2E06060059F676 /* RideDetailViewModel.swift */,
+				F2AC0BA82F2E06060059F676 /* RideSearchViewModel.swift */,
+				F2AC0BA92F2E06060059F676 /* RideViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F2AC0BB42F2E06060059F676 /* Rides */ = {
+			isa = PBXGroup;
+			children = (
+				F2AC0BAB2F2E06060059F676 /* CreateRideView.swift */,
+				F2AC0BAC2F2E06060059F676 /* LocationPickerView.swift */,
+				F2AC0BAD2F2E06060059F676 /* PendingRequestsView.swift */,
+				F2AC0BAE2F2E06060059F676 /* RideChatView.swift */,
+				F2AC0BAF2F2E06060059F676 /* RideDetailView.swift */,
+				F2AC0BB02F2E06060059F676 /* RideListView.swift */,
+				F2AC0BB12F2E06060059F676 /* RideRowView.swift */,
+				F2AC0BB22F2E06060059F676 /* RideSearchView.swift */,
+				F2AC0BB32F2E06060059F676 /* SafetyNoticeView.swift */,
+			);
+			path = Rides;
+			sourceTree = "<group>";
+		};
+		F2AC0BB72F2E06060059F676 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F2AC0BB42F2E06060059F676 /* Rides */,
+				F2AC0BB52F2E06060059F676 /* AuthView.swift */,
+				F2AC0BB62F2E06060059F676 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F2AC0BBC2F2E06060059F676 /* go-commute */ = {
+			isa = PBXGroup;
+			children = (
+				F2AC0BA02F2E06060059F676 /* Models */,
+				F2AC0BA32F2E06060059F676 /* Services */,
+				F2AC0BAA2F2E06060059F676 /* ViewModels */,
+				F2AC0BB72F2E06060059F676 /* Views */,
+				F2AC0BB82F2E06060059F676 /* Assets.xcassets */,
+				F2AC0BE52F2E0CA50059F676 /* LaunchScreen.storyboard */,
+				F2AC0BB92F2E06060059F676 /* ContentView.swift */,
+				F2AC0BBA2F2E06060059F676 /* GoCommuteApp.swift */,
+			);
+			path = "go-commute";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +200,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				F2243C662F047A1C0014071A /* PoolPals */,
 			);
 			name = GoCommute;
 			packageProductDependencies = (
@@ -127,6 +253,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2AC0BDF2F2E06060059F676 /* Assets.xcassets in Resources */,
+				F2AC0BE62F2E0CA50059F676 /* LaunchScreen.storyboard in Resources */,
+				F2AC0BE02F2E06060059F676 /* README.md in Resources */,
 				F2AC0B1A2F2E00760059F676 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +267,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2AC0BC22F2E06060059F676 /* SafetyNoticeView.swift in Sources */,
+				F2AC0BC32F2E06060059F676 /* GoCommuteApp.swift in Sources */,
+				F2AC0BC52F2E06060059F676 /* AppUser.swift in Sources */,
+				F2AC0BC62F2E06060059F676 /* ContentView.swift in Sources */,
+				F2AC0BC72F2E06060059F676 /* RideSearchViewModel.swift in Sources */,
+				F2AC0BC82F2E06060059F676 /* RideChatViewModel.swift in Sources */,
+				F2AC0BCA2F2E06060059F676 /* RideService.swift in Sources */,
+				F2AC0BCB2F2E06060059F676 /* RideDetailView.swift in Sources */,
+				F2AC0BCC2F2E06060059F676 /* SettingsView.swift in Sources */,
+				F2AC0BCD2F2E06060059F676 /* PendingRideRequest.swift in Sources */,
+				F2AC0BCE2F2E06060059F676 /* RideChatView.swift in Sources */,
+				F2AC0BCF2F2E06060059F676 /* AuthViewModel.swift in Sources */,
+				F2AC0BD02F2E06060059F676 /* PendingRequestsViewModel.swift in Sources */,
+				F2AC0BD12F2E06060059F676 /* RideDetailViewModel.swift in Sources */,
+				F2AC0BD22F2E06060059F676 /* RideMessage.swift in Sources */,
+				F2AC0BD32F2E06060059F676 /* RideRequestStatus.swift in Sources */,
+				F2AC0BD42F2E06060059F676 /* AuthService.swift in Sources */,
+				F2AC0BD52F2E06060059F676 /* RideListView.swift in Sources */,
+				F2AC0BD62F2E06060059F676 /* RideViewModel.swift in Sources */,
+				F2AC0BD72F2E06060059F676 /* PendingRequestsView.swift in Sources */,
+				F2AC0BD82F2E06060059F676 /* LocationPickerView.swift in Sources */,
+				F2AC0BD92F2E06060059F676 /* RideRequest.swift in Sources */,
+				F2AC0BDA2F2E06060059F676 /* Ride.swift in Sources */,
+				F2AC0BDB2F2E06060059F676 /* AuthView.swift in Sources */,
+				F2AC0BDC2F2E06060059F676 /* CreateRideView.swift in Sources */,
+				F2AC0BDD2F2E06060059F676 /* RideRowView.swift in Sources */,
+				F2AC0BDE2F2E06060059F676 /* RideSearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

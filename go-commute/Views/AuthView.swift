@@ -20,8 +20,15 @@ struct AuthView: View {
     var body: some View {
         VStack(spacing: 16) {
             
+            Image("Logo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 150, height: 150)
+                .padding(.top, 40)
+            
             Text(isLoginMode ? "Sign In" : "Create Account")
                 .font(.title)
+        
             
             if !isLoginMode {
                 TextField("Name", text: $name)
