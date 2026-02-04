@@ -10,9 +10,8 @@
 		F2243C742F047B7A0014071A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F2243C732F047B7A0014071A /* FirebaseAuth */; };
 		F2243C762F047B7A0014071A /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = F2243C752F047B7A0014071A /* FirebaseCore */; };
 		F2243C782F047B7A0014071A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F2243C772F047B7A0014071A /* FirebaseFirestore */; };
-		F2AC0B1A2F2E00760059F676 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2AC0B192F2E00760059F676 /* GoogleService-Info.plist */; };
 		F2AC0BC22F2E06060059F676 /* SafetyNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BB32F2E06060059F676 /* SafetyNoticeView.swift */; };
-		F2AC0BC32F2E06060059F676 /* GoCommuteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BBA2F2E06060059F676 /* GoCommuteApp.swift */; };
+		F2AC0BC32F2E06060059F676 /* CommuviaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BBA2F2E06060059F676 /* CommuviaApp.swift */; };
 		F2AC0BC52F2E06060059F676 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0B9A2F2E06060059F676 /* AppUser.swift */; };
 		F2AC0BC62F2E06060059F676 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BB92F2E06060059F676 /* ContentView.swift */; };
 		F2AC0BC72F2E06060059F676 /* RideSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AC0BA82F2E06060059F676 /* RideSearchViewModel.swift */; };
@@ -45,11 +44,14 @@
 		F2DD527F2F33ACB9004D4213 /* BlockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DD527E2F33ACB8004D4213 /* BlockService.swift */; };
 		F2DD52832F33AE73004D4213 /* ContentFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DD52822F33AE73004D4213 /* ContentFilter.swift */; };
 		F2DD52852F33B096004D4213 /* EmailVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DD52842F33B096004D4213 /* EmailVerificationView.swift */; };
+		F2DD528C2F33C71D004D4213 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2DD528B2F33C71D004D4213 /* GoogleService-Info.plist */; };
+		F2DD528F2F33CAA9004D4213 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DD528E2F33CAA9004D4213 /* AppDelegate.swift */; };
+		F2DD52922F33CBFF004D4213 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = F2DD52912F33CBFF004D4213 /* GoogleSignIn */; };
+		F2DD52942F33CBFF004D4213 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F2DD52932F33CBFF004D4213 /* GoogleSignInSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F2243C642F047A1C0014071A /* Commuvia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Commuvia.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F2AC0B192F2E00760059F676 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F2AC0B9A2F2E06060059F676 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		F2AC0B9B2F2E06060059F676 /* PendingRideRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingRideRequest.swift; sourceTree = "<group>"; };
 		F2AC0B9C2F2E06060059F676 /* Ride.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
@@ -77,13 +79,16 @@
 		F2AC0BB62F2E06060059F676 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F2AC0BB82F2E06060059F676 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F2AC0BB92F2E06060059F676 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		F2AC0BBA2F2E06060059F676 /* GoCommuteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoCommuteApp.swift; sourceTree = "<group>"; };
+		F2AC0BBA2F2E06060059F676 /* CommuviaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommuviaApp.swift; sourceTree = "<group>"; };
 		F2AC0BBE2F2E06060059F676 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F2AC0BE52F2E0CA50059F676 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F2DD527C2F33AC3F004D4213 /* TermsAcceptanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAcceptanceView.swift; sourceTree = "<group>"; };
 		F2DD527E2F33ACB8004D4213 /* BlockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockService.swift; sourceTree = "<group>"; };
 		F2DD52822F33AE73004D4213 /* ContentFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFilter.swift; sourceTree = "<group>"; };
 		F2DD52842F33B096004D4213 /* EmailVerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailVerificationView.swift; sourceTree = "<group>"; };
+		F2DD528B2F33C71D004D4213 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F2DD528D2F33C8DE004D4213 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F2DD528E2F33CAA9004D4213 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -99,7 +104,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2DD52942F33CBFF004D4213 /* GoogleSignInSwift in Frameworks */,
 				F2243C762F047B7A0014071A /* FirebaseCore in Frameworks */,
+				F2DD52922F33CBFF004D4213 /* GoogleSignIn in Frameworks */,
 				F2243C742F047B7A0014071A /* FirebaseAuth in Frameworks */,
 				F2243C782F047B7A0014071A /* FirebaseFirestore in Frameworks */,
 			);
@@ -111,9 +118,9 @@
 		F2243C5B2F047A1C0014071A = {
 			isa = PBXGroup;
 			children = (
+				F2DD528B2F33C71D004D4213 /* GoogleService-Info.plist */,
 				F2AC0BBC2F2E06060059F676 /* Commuvia */,
 				F2AC0BBE2F2E06060059F676 /* README.md */,
-				F2AC0B192F2E00760059F676 /* GoogleService-Info.plist */,
 				F2243C652F047A1C0014071A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -142,6 +149,7 @@
 		F2AC0BA32F2E06060059F676 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				F2DD528E2F33CAA9004D4213 /* AppDelegate.swift */,
 				F2DD52822F33AE73004D4213 /* ContentFilter.swift */,
 				F2DD527E2F33ACB8004D4213 /* BlockService.swift */,
 				F2AC0BA12F2E06060059F676 /* AuthService.swift */,
@@ -195,6 +203,7 @@
 		F2AC0BBC2F2E06060059F676 /* Commuvia */ = {
 			isa = PBXGroup;
 			children = (
+				F2DD528D2F33C8DE004D4213 /* Info.plist */,
 				F2AC0BA02F2E06060059F676 /* Models */,
 				F2AC0BA32F2E06060059F676 /* Services */,
 				F2AC0BAA2F2E06060059F676 /* ViewModels */,
@@ -202,7 +211,7 @@
 				F2AC0BB82F2E06060059F676 /* Assets.xcassets */,
 				F2AC0BE52F2E0CA50059F676 /* LaunchScreen.storyboard */,
 				F2AC0BB92F2E06060059F676 /* ContentView.swift */,
-				F2AC0BBA2F2E06060059F676 /* GoCommuteApp.swift */,
+				F2AC0BBA2F2E06060059F676 /* CommuviaApp.swift */,
 			);
 			path = Commuvia;
 			sourceTree = "<group>";
@@ -230,6 +239,8 @@
 				F2243C732F047B7A0014071A /* FirebaseAuth */,
 				F2243C752F047B7A0014071A /* FirebaseCore */,
 				F2243C772F047B7A0014071A /* FirebaseFirestore */,
+				F2DD52912F33CBFF004D4213 /* GoogleSignIn */,
+				F2DD52932F33CBFF004D4213 /* GoogleSignInSwift */,
 			);
 			productName = PoolPals;
 			productReference = F2243C642F047A1C0014071A /* Commuvia.app */;
@@ -261,6 +272,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				F2243C722F047B7A0014071A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F2DD52902F33CBFF004D4213 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F2243C652F047A1C0014071A /* Products */;
@@ -277,10 +289,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2DD528C2F33C71D004D4213 /* GoogleService-Info.plist in Resources */,
 				F2AC0BDF2F2E06060059F676 /* Assets.xcassets in Resources */,
 				F2AC0BE62F2E0CA50059F676 /* LaunchScreen.storyboard in Resources */,
 				F2AC0BE02F2E06060059F676 /* README.md in Resources */,
-				F2AC0B1A2F2E00760059F676 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +305,7 @@
 			files = (
 				F2AC0BC22F2E06060059F676 /* SafetyNoticeView.swift in Sources */,
 				F2DD52852F33B096004D4213 /* EmailVerificationView.swift in Sources */,
-				F2AC0BC32F2E06060059F676 /* GoCommuteApp.swift in Sources */,
+				F2AC0BC32F2E06060059F676 /* CommuviaApp.swift in Sources */,
 				F2AC0BC52F2E06060059F676 /* AppUser.swift in Sources */,
 				F2AC0BC62F2E06060059F676 /* ContentView.swift in Sources */,
 				F2AC0BC72F2E06060059F676 /* RideSearchViewModel.swift in Sources */,
@@ -321,6 +333,7 @@
 				F2AC0BDC2F2E06060059F676 /* CreateRideView.swift in Sources */,
 				F2DD527D2F33AC3F004D4213 /* TermsAcceptanceView.swift in Sources */,
 				F2AC0BDD2F2E06060059F676 /* RideRowView.swift in Sources */,
+				F2DD528F2F33CAA9004D4213 /* AppDelegate.swift in Sources */,
 				F2AC0BDE2F2E06060059F676 /* RideSearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +472,7 @@
 				DEVELOPMENT_TEAM = 39T356G823;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Commuvia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -491,6 +505,7 @@
 				DEVELOPMENT_TEAM = 39T356G823;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Commuvia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -545,6 +560,14 @@
 				version = 12.7.0;
 			};
 		};
+		F2DD52902F33CBFF004D4213 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -562,6 +585,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F2243C722F047B7A0014071A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		F2DD52912F33CBFF004D4213 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F2DD52902F33CBFF004D4213 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		F2DD52932F33CBFF004D4213 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F2DD52902F33CBFF004D4213 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

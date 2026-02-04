@@ -6,6 +6,9 @@
 import Foundation
 import FirebaseAuth
 import Combine
+import FirebaseCore
+import UIKit
+import GoogleSignIn
 
 final class AuthViewModel: ObservableObject {
 
@@ -142,7 +145,59 @@ final class AuthViewModel: ObservableObject {
             }
         }
     }
+    
+    func signInWithGoogle() {
+        guard
+            let rootViewController = UIApplication.shared
+                .connectedScenes
+                .compactMap({ $0 as? UIWindowScene })
+                .flatMap({ $0.windows })
+                .first(where: { $0.isKeyWindow })?
+                .rootViewController
+        else {
+            return
+        }
+        
+        guard let clientID = FirebaseApp.app()?.options.clientID else {
+               print("Firebase clientID not found")
+               return
+           }
+        
+        GIDSignIn.sharedInstance.configuration =
+        GIDConfiguration(clientID: clientID)
 
+        GIDSignIn.sharedInstance.signIn(
+            withPresenting: rootViewController
+        ) { [weak self] signInResult, error in
+
+            if let error {
+                DispatchQueue.main.async {
+                    self?.errorMessage = error.localizedDescription
+                }
+                return
+            }
+
+            guard
+                let user = signInResult?.user,
+                let idToken = user.idToken?.tokenString
+            else {
+                return
+            }
+
+            let credential = GoogleAuthProvider.credential(
+                withIDToken: idToken,
+                accessToken: user.accessToken.tokenString
+            )
+
+            Auth.auth().signIn(with: credential) { _, error in
+                if let error {
+                    DispatchQueue.main.async {
+                        self?.errorMessage = error.localizedDescription
+                    }
+                }
+            }
+        }
+    }
 
     func signOut() {
         try? AuthService.shared.signOut()

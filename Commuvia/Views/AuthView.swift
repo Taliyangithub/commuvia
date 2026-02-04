@@ -77,6 +77,20 @@ struct AuthView: View {
             }
             .font(.footnote)
 
+            Divider()
+                .padding(.vertical, 8)
+
+            Button {
+                viewModel.signInWithGoogle()
+            } label: {
+                HStack {
+                    Image(systemName: "g.circle.fill")
+                    Text("Continue with Google")
+                }
+                .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.bordered)
+
             
             if let error = viewModel.errorMessage {
                 Text(error)

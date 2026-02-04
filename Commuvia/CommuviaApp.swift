@@ -3,11 +3,9 @@ import FirebaseCore
 
 @main
 struct CommuviaApp: App {
-    
-    init() {
-        FirebaseApp.configure()
-    }
-    
+
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     var body: some Scene {
         WindowGroup {
             ContentView()
