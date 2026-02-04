@@ -454,21 +454,75 @@ final class RideService {
             return
         }
 
-        let data: [String: Any] = [
-            "senderId": userId,
-            "senderName": senderName,
-            "text": text,
-            "timestamp": FieldValue.serverTimestamp()
-        ]
+        // 🔒 Content moderation (MANDATORY)
+        guard !ContentFilter.containsObjectionableContent(text) else {
+            completion?(NSError(
+                domain: "ContentFilter",
+                code: 400,
+                userInfo: [
+                    NSLocalizedDescriptionKey:
+                    "Your message contains inappropriate content and was not sent."
+                ]
+            ))
+            return
+        }
 
-        db.collection("rides")
-            .document(rideId)
-            .collection("messages")
-            .addDocument(data: data) { error in
+        let rideRef = db.collection("rides").document(rideId)
+
+        // 🔒 Fetch ride to check owner
+        rideRef.getDocument { rideSnap, error in
+            if let error {
                 completion?(error)
+                return
             }
+
+            guard let rideData = rideSnap?.data(),
+                  let ownerId = rideData["ownerId"] as? String
+            else {
+                completion?(NSError(domain: "RideError", code: -1))
+                return
+            }
+
+            let isOwner = ownerId == userId
+
+            // 🔒 Check approval if not owner
+            rideRef.collection("requests")
+                .whereField("userId", isEqualTo: userId)
+                .whereField("status", isEqualTo: RideRequestStatus.approved.rawValue)
+                .limit(to: 1)
+                .getDocuments { snapshot, _ in
+
+                    let isApproved = snapshot?.documents.isEmpty == false
+
+                    guard isOwner || isApproved else {
+                        completion?(NSError(
+                            domain: "ChatAccess",
+                            code: 403,
+                            userInfo: [
+                                NSLocalizedDescriptionKey:
+                                "Chat is available only after ride approval."
+                            ]
+                        ))
+                        return
+                    }
+
+                    // ✅ Safe to send message
+                    let data: [String: Any] = [
+                        "senderId": userId,
+                        "senderName": senderName,
+                        "text": text,
+                        "timestamp": FieldValue.serverTimestamp()
+                    ]
+
+                    rideRef
+                        .collection("messages")
+                        .addDocument(data: data) { error in
+                            completion?(error)
+                        }
+                }
+        }
     }
-    
+
     // Fetched joined Rides
     func fetchJoinedRideIds(
         userId: String,

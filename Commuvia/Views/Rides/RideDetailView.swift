@@ -61,16 +61,23 @@ struct RideDetailView: View {
                     .cornerRadius(12)
 
                     // Chat
-                    NavigationLink {
-                        RideChatView(
-                            ride: viewModel.ride,
-                            currentUserName: authViewModel.currentUserName ?? "Unknown"
-                        )
-                    } label: {
-                        Label("Open Ride Chat", systemImage: "message")
-                            .frame(maxWidth: .infinity)
+                    if viewModel.canAccessChat {
+                        NavigationLink {
+                            RideChatView(
+                                ride: viewModel.ride,
+                                currentUserName: authViewModel.currentUserName ?? "Unknown"
+                            )
+                        } label: {
+                            Label("Open Ride Chat", systemImage: "message")
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(.bordered)
+                    } else {
+                        Text("Chat is available after your request is approved.")
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
                     }
-                    .buttonStyle(.bordered)
+
 
                     // Actions
                     if viewModel.isOwner {

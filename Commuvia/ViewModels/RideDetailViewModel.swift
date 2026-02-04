@@ -23,6 +23,10 @@ final class RideDetailViewModel: ObservableObject {
     private var currentUserId: String? {
         Auth.auth().currentUser?.uid
     }
+    
+    var canAccessChat: Bool {
+        isOwner || userRequestStatus == .approved
+    }
 
     var isOwner: Bool {
         ride.ownerId == currentUserId

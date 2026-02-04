@@ -75,7 +75,8 @@ struct AuthView: View {
                     ForgotPasswordView(authViewModel: viewModel)
                 }
                 .font(.footnote)
-
+                .foregroundStyle(.red)
+                
                 Divider()
                     .padding(.vertical, 8)
 

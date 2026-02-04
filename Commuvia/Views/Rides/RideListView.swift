@@ -9,6 +9,9 @@ struct RideListView: View {
     // Pending requests flag
     @State private var hasPendingRequests = false
 
+    // Logout confirmation
+    @State private var showLogoutConfirm = false
+
     // Safety Notice
     @AppStorage("hasSeenSafetyNotice") private var hasSeenSafetyNotice = false
     @State private var showSafetyNotice = false
@@ -48,7 +51,6 @@ struct RideListView: View {
                             RideSearchView(authViewModel: authViewModel)
                         }
 
-            
                         if hasPendingRequests {
                             NavigationLink("Pending Requests") {
                                 PendingRequestsView()
@@ -70,6 +72,16 @@ struct RideListView: View {
                                 onSignOut: onSignOut
                             )
                         }
+
+                        Divider()
+
+                        //Logout directly from My Rides
+                        Button(role: .destructive) {
+                            showLogoutConfirm = true
+                        } label: {
+                            Label("Sign Out", systemImage: "arrow.backward.square")
+                        }
+
                     } label: {
                         Image(systemName: "gearshape")
                     }
@@ -83,11 +95,28 @@ struct RideListView: View {
                     showSafetyNotice = true
                 }
             }
+            .onChange(of: authViewModel.isAuthenticated) { _, isAuth in
+                if isAuth {
+                    loadPendingFlag()
+                }
+            }
             .sheet(isPresented: $showSafetyNotice) {
                 SafetyNoticeView {
                     hasSeenSafetyNotice = true
                     showSafetyNotice = false
                 }
+            }
+            .confirmationDialog(
+                "Sign Out",
+                isPresented: $showLogoutConfirm,
+                titleVisibility: .visible
+            ) {
+                Button("Sign Out", role: .destructive) {
+                    onSignOut()
+                }
+                Button("Cancel", role: .cancel) { }
+            } message: {
+                Text("Are you sure you want to sign out?")
             }
         }
     }
@@ -95,13 +124,12 @@ struct RideListView: View {
     // MARK: - Helpers
 
     private func loadPendingFlag() {
-        guard let uid = authViewModel.currentUserName != nil
-                ? AuthService.shared.currentUserId()
-                : nil
-        else { return }
+        guard let uid = AuthService.shared.currentUserId() else { return }
 
         RideService.shared.hasActivePendingRequests(userId: uid) { hasPending in
-            self.hasPendingRequests = hasPending
+            DispatchQueue.main.async {
+                self.hasPendingRequests = hasPending
+            }
         }
     }
 }
