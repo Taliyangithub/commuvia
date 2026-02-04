@@ -2,9 +2,6 @@
 //  BlockService.swift
 //  Commuvia
 //
-//  Created by Priya Taliyan on 2026-02-04.
-//
-
 
 import FirebaseFirestore
 import FirebaseAuth
@@ -20,7 +17,15 @@ final class BlockService {
         blockedUserId: String,
         reason: String
     ) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let uid = Auth.auth().currentUser?.uid else {
+            print("Block failed: no authenticated user")
+            return
+        }
+
+        guard uid != blockedUserId else {
+            print("Block failed: cannot block self")
+            return
+        }
 
         let blockRef = db
             .collection("users")
@@ -30,7 +35,13 @@ final class BlockService {
 
         blockRef.setData([
             "blockedAt": FieldValue.serverTimestamp()
-        ])
+        ]) { error in
+            if let error {
+                print(" Block write failed:", error.localizedDescription)
+            } else {
+                print("Blocked user:", blockedUserId)
+            }
+        }
 
         db.collection("blockedReports").addDocument(data: [
             "reporterId": uid,

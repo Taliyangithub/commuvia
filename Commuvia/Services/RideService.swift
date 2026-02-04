@@ -442,7 +442,6 @@ final class RideService {
 
     
     // Send Message (Ride Chat)
-
     func sendMessage(
         rideId: String,
         text: String,
@@ -454,7 +453,6 @@ final class RideService {
             return
         }
 
-        // 🔒 Content moderation (MANDATORY)
         guard !ContentFilter.containsObjectionableContent(text) else {
             completion?(NSError(
                 domain: "ContentFilter",
@@ -469,15 +467,15 @@ final class RideService {
 
         let rideRef = db.collection("rides").document(rideId)
 
-        // 🔒 Fetch ride to check owner
         rideRef.getDocument { rideSnap, error in
             if let error {
                 completion?(error)
                 return
             }
 
-            guard let rideData = rideSnap?.data(),
-                  let ownerId = rideData["ownerId"] as? String
+            guard
+                let data = rideSnap?.data(),
+                let ownerId = data["ownerId"] as? String
             else {
                 completion?(NSError(domain: "RideError", code: -1))
                 return
@@ -485,7 +483,6 @@ final class RideService {
 
             let isOwner = ownerId == userId
 
-            // 🔒 Check approval if not owner
             rideRef.collection("requests")
                 .whereField("userId", isEqualTo: userId)
                 .whereField("status", isEqualTo: RideRequestStatus.approved.rawValue)
@@ -506,22 +503,18 @@ final class RideService {
                         return
                     }
 
-                    // ✅ Safe to send message
-                    let data: [String: Any] = [
+                    rideRef.collection("messages").addDocument(data: [
                         "senderId": userId,
                         "senderName": senderName,
                         "text": text,
                         "timestamp": FieldValue.serverTimestamp()
-                    ]
-
-                    rideRef
-                        .collection("messages")
-                        .addDocument(data: data) { error in
-                            completion?(error)
-                        }
+                    ]) { error in
+                        completion?(error)
+                    }
                 }
         }
     }
+
 
     // Fetched joined Rides
     func fetchJoinedRideIds(

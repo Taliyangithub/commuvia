@@ -9,11 +9,11 @@ import FirebaseFirestore
 
 struct RideChatView: View {
 
-    // MARK: - Inputs
+    // Inputs
     let ride: Ride
     let currentUserName: String
 
-    // MARK: - State
+    //State
     @StateObject private var viewModel = RideChatViewModel()
     @State private var messageText: String = ""
 
@@ -30,7 +30,7 @@ struct RideChatView: View {
         Auth.auth().currentUser?.uid
     }
 
-    // MARK: - Body
+    //Body
     var body: some View {
         VStack {
 
@@ -71,7 +71,7 @@ struct RideChatView: View {
             viewModel.stopListening()
         }
 
-        // MARK: - Message Actions
+        //Message Actions
         .confirmationDialog(
             "Message Actions",
             isPresented: $showActionSheet,
@@ -88,7 +88,7 @@ struct RideChatView: View {
             Button("Cancel", role: .cancel) { }
         }
 
-        // MARK: - Report
+        //Report
         .alert(
             "Report Message",
             isPresented: $showReportConfirmation
@@ -101,7 +101,7 @@ struct RideChatView: View {
             Text("This message will be reviewed and appropriate action will be taken within 24 hours.")
         }
 
-        // MARK: - Block
+        // Block
         .alert(
             "Block User",
             isPresented: $showBlockConfirmation
@@ -114,7 +114,7 @@ struct RideChatView: View {
             Text("Blocked users will no longer appear in your chat or ride activity.")
         }
 
-        // MARK: - Moderation Feedback
+        // Moderation Feedback
         .alert(
             "Message Not Sent",
             isPresented: $showModerationAlert
@@ -125,7 +125,7 @@ struct RideChatView: View {
         }
     }
 
-    // MARK: - Chat Bubble
+    // Chat Bubble
     private func chatBubble(for message: RideMessage) -> some View {
         let isCurrentUser = message.senderId == currentUserId
 
@@ -166,7 +166,7 @@ struct RideChatView: View {
         .padding(.vertical, 4)
     }
 
-    // MARK: - Actions
+    //Actions
     private func sendMessage() {
         RideService.shared.sendMessage(
             rideId: ride.id,
@@ -212,8 +212,9 @@ struct RideChatView: View {
             reason: "Abusive chat behavior"
         )
 
-        viewModel.messages.removeAll {
-            $0.senderId == message.senderId
-        }
+        // Refresh listener so blocked messages never come back
+        viewModel.startListening(rideId: ride.id)
     }
+
+
 }
