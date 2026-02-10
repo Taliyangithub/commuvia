@@ -68,6 +68,20 @@ struct AuthView: View {
                 Divider()
                     .padding(.vertical, 8)
 
+                
+                GoogleSignInButtonView()
+                    .frame(height: 48)
+                    .background(Color(.systemBackground))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color(.systemGray3), lineWidth: 1)
+                    )
+                    .cornerRadius(8)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        viewModel.signInWithGoogle()
+                    }
+                
                 // Sign in with Apple
                 SignInWithAppleButton(
                     .signIn,
@@ -78,17 +92,6 @@ struct AuthView: View {
                 )
                 .frame(height: 48)
 
-
-                Button {
-                    viewModel.signInWithGoogle()
-                } label: {
-                    HStack {
-                        Image(systemName: "g.circle.fill")
-                        Text("Continue with Google")
-                    }
-                    .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.bordered)
 
                 if let error = viewModel.errorMessage {
                     Text(error)
