@@ -95,9 +95,19 @@ final class AuthViewModel: NSObject, ObservableObject {
     }
 
     func signOut() {
-        try? AuthService.shared.signOut()
+        do {
+            try AuthService.shared.signOut()
+        } catch {
+            print("Firebase sign out failed:", error)
+        }
+
+        // Sign out from Google
+        GIDSignIn.sharedInstance.signOut()
+
+        // Stop safety listeners
         SafetyState.shared.stop()
     }
+
 
 
     // MARK: - Profile
@@ -126,48 +136,39 @@ final class AuthViewModel: NSObject, ObservableObject {
         }
     }
 
+    
     func deleteAccountAndSignOut() {
         guard let user = Auth.auth().currentUser else { return }
         let uid = user.uid
 
-        // Step 1: Delete Firestore data
-        RideService.shared.deleteAccount(userId: uid) { [weak self] result in
+        // Step 1: Delete Auth user FIRST (after recent login)
+        AuthService.shared.deleteAuthUser { [weak self] authResult in
             Task { @MainActor in
-                switch result {
+                switch authResult {
 
-                case .failure(let error):
-                    self?.errorMessage = error.localizedDescription
+                case .failure(let error as NSError):
+
+                    if error.code == AuthErrorCode.requiresRecentLogin.rawValue {
+                        self?.errorMessage =
+                        "For security reasons, please sign in again to confirm your identity and complete permanent account deletion."
+                    } else {
+                        self?.errorMessage = error.localizedDescription
+                    }
 
                 case .success:
 
-                    // Step 2: Try deleting Auth user
-                    AuthService.shared.deleteAuthUser { authResult in
+                    // Step 2: Delete Firestore data AFTER auth deletion
+                    RideService.shared.deleteAccount(userId: uid) { _ in
                         Task { @MainActor in
-                            switch authResult {
+                            self?.signOut()
 
-                            case .success:
-                                try? AuthService.shared.signOut()
-                                SafetyState.shared.stop()
-
-                            case .failure(let error as NSError):
-
-                                // If recent login required → force logout and show message
-                                if error.code == AuthErrorCode.requiresRecentLogin.rawValue {
-                                    try? AuthService.shared.signOut()
-                                    SafetyState.shared.stop()
-
-                                    self?.errorMessage =
-                                    "For security reasons, please sign in again and delete your account once more to complete permanent removal."
-                                } else {
-                                    self?.errorMessage = error.localizedDescription
-                                }
-                            }
                         }
                     }
                 }
             }
         }
     }
+
 
 
 
