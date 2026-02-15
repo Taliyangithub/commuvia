@@ -154,7 +154,7 @@ final class AuthService {
     }
 
     //Delete Auth User
-
+    
     func deleteAuthUser(
         completion: @escaping (Result<Void, Error>) -> Void
     ) {
@@ -164,11 +164,22 @@ final class AuthService {
         }
 
         user.delete { error in
-            error == nil
-                ? completion(.success(()))
-                : completion(.failure(error!))
+            if let error = error as NSError? {
+
+                // Requires recent login
+                if error.code == AuthErrorCode.requiresRecentLogin.rawValue {
+                    completion(.failure(error))
+                    return
+                }
+
+                completion(.failure(error))
+                return
+            }
+
+            completion(.success(()))
         }
     }
+
     
     //Change Password
 

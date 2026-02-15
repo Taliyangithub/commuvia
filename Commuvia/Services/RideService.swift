@@ -616,6 +616,7 @@ final class RideService {
         userId: String,
         completion: @escaping (Result<Void, Error>) -> Void
     ) {
+        print("Starting account deletion")
         let userRef = db.collection("users").document(userId)
 
         userRef.collection("joinedRides").getDocuments { snapshot, error in
@@ -647,8 +648,10 @@ final class RideService {
                         // 3️⃣ Finally delete user profile document
                         userRef.delete { error in
                             if let error = error {
+                                print("User document delete failed:", error)
                                 completion(.failure(error))
                             } else {
+                                print("User document delete sucess:")
                                 completion(.success(()))
                             }
                         }

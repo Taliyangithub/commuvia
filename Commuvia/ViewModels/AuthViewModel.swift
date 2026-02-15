@@ -130,26 +130,37 @@ final class AuthViewModel: NSObject, ObservableObject {
         guard let user = Auth.auth().currentUser else { return }
         let uid = user.uid
 
-        // 1) Delete Firestore user data first
+        // Step 1: Delete Firestore data
         RideService.shared.deleteAccount(userId: uid) { [weak self] result in
             Task { @MainActor in
                 switch result {
+
                 case .failure(let error):
                     self?.errorMessage = error.localizedDescription
 
                 case .success:
-                    // 2) Delete Firebase Auth account
+
+                    // Step 2: Try deleting Auth user
                     AuthService.shared.deleteAuthUser { authResult in
                         Task { @MainActor in
                             switch authResult {
-                            case .success:
-                                // User is deleted; state listener will move UI to login.
-                                try? AuthService.shared.signOut()
 
-                            case .failure(let error):
-                                // Very common: requires recent login
-                                self?.errorMessage =
-                                    "Account data deleted, but login account could not be removed. Please sign in again and try Delete Account once more.\n\n\(error.localizedDescription)"
+                            case .success:
+                                try? AuthService.shared.signOut()
+                                SafetyState.shared.stop()
+
+                            case .failure(let error as NSError):
+
+                                // If recent login required → force logout and show message
+                                if error.code == AuthErrorCode.requiresRecentLogin.rawValue {
+                                    try? AuthService.shared.signOut()
+                                    SafetyState.shared.stop()
+
+                                    self?.errorMessage =
+                                    "For security reasons, please sign in again and delete your account once more to complete permanent removal."
+                                } else {
+                                    self?.errorMessage = error.localizedDescription
+                                }
                             }
                         }
                     }
@@ -157,6 +168,7 @@ final class AuthViewModel: NSObject, ObservableObject {
             }
         }
     }
+
 
 
     // Google Sign-In (kept)
